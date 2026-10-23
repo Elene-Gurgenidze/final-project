@@ -3,7 +3,6 @@ const Destination = require("../models/Destination");
 
 const router = express.Router();
 
-// GET /api/destinations → ყველა მიმართულების წამოღება
 router.get("/", async (req, res) => {
     try {
         const filter = {};
@@ -16,7 +15,6 @@ router.get("/", async (req, res) => {
     }
 });
 
-// GET /api/destinations/:id → ერთი კონკრეტული მიმართულების წამოღება ID-ით
 router.get("/:id", async (req, res) => {
     try {
         const destination = await Destination.findById(req.params.id);
@@ -27,7 +25,6 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-// POST /api/destinations → ახალი მიმართულების დამატება
 router.post("/", async (req, res) => {
     try {
         const destination = await Destination.create(req.body);
@@ -37,7 +34,6 @@ router.post("/", async (req, res) => {
     }
 });
 
-// PUT /api/destinations/:id → მიმართულების განახლება
 router.put("/:id", async (req, res) => {
     try {
         const destination = await Destination.findByIdAndUpdate(req.params.id, req.body, {
@@ -51,7 +47,6 @@ router.put("/:id", async (req, res) => {
     }
 });
 
-// DELETE /api/destinations/:id → მიმართულების წაშლა
 router.delete("/:id", async (req, res) => {
     try {
         const destination = await Destination.findByIdAndDelete(req.params.id);

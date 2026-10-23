@@ -70,9 +70,11 @@ app.use("/api", async (req, res, next) => {
 
 const userRoutes = require("./routes/Users");
 const destinationRoutes = require("./routes/destinations");
+const uploadRoutes = require("./routes/upload");
 
 app.use("/api/Users", userRoutes);
 app.use("/api/destinations", destinationRoutes);
+app.use("/api/uploads", uploadRoutes);
 
 app.use((req, res) => {
     res.status(404).json({ message: "Route not found" });
